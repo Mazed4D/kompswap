@@ -1,21 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
+import merge from 'deepmerge';
+import { MD3DarkTheme, MD3LightTheme, Provider as PaperProvider, adaptNavigationTheme } from 'react-native-paper';
+import {
+  DarkTheme as NavigationDarkTheme,
+  DefaultTheme as NavigationDefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 
+import Navigation from './navigation';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
+
+  const { LightTheme, DarkTheme } = adaptNavigationTheme({
+    reactNavigationLight: NavigationDefaultTheme,
+    reactNavigationDark: NavigationDarkTheme,
+  });
+  const CombinedDefaultTheme = merge(MD3DarkTheme, LightTheme);
+  const CombinedDarkTheme = merge(MD3LightTheme, DarkTheme);
+  const theme = colorScheme === 'dark' ? CombinedDarkTheme : CombinedDefaultTheme
 
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+        <PaperProvider theme={theme}>
+          <Navigation theme={theme} />
+          <StatusBar />
+        </PaperProvider>
       </SafeAreaProvider>
     );
   }
