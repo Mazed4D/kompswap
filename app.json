@@ -24,8 +24,7 @@
 				"foregroundImage": "./assets/images/adaptive-icon.png",
 				"backgroundColor": "#ffffff"
 			},
-			"package": "xyz.milanpaunovic.kompswap",
-			"googleServicesFile": "./google-services.json"
+			"package": "com.milanpaunovic.kompswap"
 		},
 		"web": {
 			"favicon": "./assets/images/favicon.png"

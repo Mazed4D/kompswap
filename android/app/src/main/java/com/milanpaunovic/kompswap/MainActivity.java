@@ -1,4 +1,4 @@
-package xyz.milanpaunovic.kompswap;
+package com.milanpaunovic.kompswap;
 
 import android.os.Build;
 import android.os.Bundle;

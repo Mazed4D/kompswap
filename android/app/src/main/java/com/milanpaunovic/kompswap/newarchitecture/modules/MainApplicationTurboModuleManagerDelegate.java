@@ -1,4 +1,4 @@
-package xyz.milanpaunovic.kompswap.newarchitecture.modules;
+package com.milanpaunovic.kompswap.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

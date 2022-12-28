@@ -1,4 +1,4 @@
-package xyz.milanpaunovic.kompswap.newarchitecture;
+package com.milanpaunovic.kompswap.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -20,9 +20,9 @@ import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import xyz.milanpaunovic.kompswap.BuildConfig;
-import xyz.milanpaunovic.kompswap.newarchitecture.components.MainComponentsRegistry;
-import xyz.milanpaunovic.kompswap.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.milanpaunovic.kompswap.BuildConfig;
+import com.milanpaunovic.kompswap.newarchitecture.components.MainComponentsRegistry;
+import com.milanpaunovic.kompswap.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
