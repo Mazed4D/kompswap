@@ -7,18 +7,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:470078814412:android:b67bd7ec9b0682f8082a69",
+        "mobilesdk_app_id": "1:470078814412:android:a56071472562031d082a69",
         "android_client_info": {
           "package_name": "xyz.milanpaunovic.kompswap"
         }
       },
       "oauth_client": [
         {
-          "client_id": "470078814412-2rnbga05egdjjhs9dplqfskse9hc97jg.apps.googleusercontent.com",
+          "client_id": "470078814412-v98t6m98g60houbeon0bpjlh0p84eost.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "xyz.milanpaunovic.kompswap",
-            "certificate_hash": "a8395b97c14006c602e062eedc329645ac22b48a"
+            "certificate_hash": "534fca43f7483107e73c2cca50973a4ec312a763"
           }
         },
         {
