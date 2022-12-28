@@ -9,12 +9,15 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
 import Navigation from './navigation';
+import useAuth from './hooks/useAuth';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 
 export default function App() {
-  const isLoadingComplete = useCachedResources();
+  const cacheComplete = useCachedResources();
   const colorScheme = useColorScheme();
+  const { initializing } = useAuth();
+  const isLoadingComplete = cacheComplete && !initializing;
 
   const { LightTheme, DarkTheme } = adaptNavigationTheme({
     reactNavigationLight: NavigationDefaultTheme,
