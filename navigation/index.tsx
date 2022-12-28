@@ -9,6 +9,8 @@ import LinkingConfiguration from './LinkingConfiguration';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ProfileStack from './stacks/ProfileStack';
 import SellStack from './stacks/SellStack';
+import UnauthStack from './stacks/UnauthStack';
+import useAuth from '../hooks/useAuth';
 import useColorScheme from '../hooks/useColorScheme';
 import { RootStackParamList, RootTabParamList } from '../types';
 
@@ -37,7 +39,7 @@ function RootNavigator() {
 const BottomTab = createMaterialBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
-  const colorScheme = useColorScheme();
+  const { user } = useAuth();
 
   return (
     <BottomTab.Navigator initialRouteName="Buy">
@@ -51,7 +53,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Sell"
-        component={SellStack}
+        component={user ? SellStack : UnauthStack}
         options={{
           title: 'Sell',
           tabBarIcon: ({ color }) => <TabBarIcon name="dollar" color={color} />,
@@ -59,7 +61,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="Profile"
-        component={ProfileStack}
+        component={user ? ProfileStack : UnauthStack}
         options={{
           title: 'Profile',
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,

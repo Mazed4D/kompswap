@@ -6,25 +6,35 @@ const usePhoneSignIn = () => {
 	const [confirm, setConfirm] =
 		useState<FirebaseAuthTypes.ConfirmationResult | null>(null);
 	const [code, setCode] = useState('');
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState('');
 
 	const signInWithPhoneNumber = async (phoneNumber: string) => {
+		setLoading(true);
 		const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+		setLoading(false);
 		setConfirm(confirmation);
 	};
 
 	const confirmCode = async () => {
+		setLoading(true);
 		try {
 			await confirm?.confirm(code);
+			setError('');
 		} catch (error) {
-			console.log('Invalid code.');
+			setError('Invalid code.');
 		}
+		setLoading(false);
 	};
 
 	return {
 		signInWithPhoneNumber,
 		confirmCode,
+		confirm,
 		setCode,
 		code,
+		error,
+		loading,
 	};
 };
 

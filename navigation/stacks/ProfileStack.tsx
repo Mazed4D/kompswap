@@ -1,18 +1,17 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import LoginScreen from '../../screens/LoginScreen';
+import ProfileScreen from '../../screens/Profile/ProfileScreen';
 import TabBar from '../TabBar';
-import TabTwoScreen from '../../screens/Sell/TabTwoScreen';
 
 const ProfileStack = () => {
     const Stack = createNativeStackNavigator();
 
     return (
-        <Stack.Navigator initialRouteName='Settings' screenOptions={{
+        <Stack.Navigator initialRouteName='ProfileScreen' screenOptions={{
             header: TabBar
         }}>
-            <Stack.Screen name='Settings' component={LoginScreen} />
+            <Stack.Screen name='ProfileScreen' component={ProfileScreen} />
         </Stack.Navigator>
     )
 }
