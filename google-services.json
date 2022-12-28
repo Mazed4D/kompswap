@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "470078814412",
+    "project_id": "kompswap",
+    "storage_bucket": "kompswap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470078814412:android:b67bd7ec9b0682f8082a69",
+        "android_client_info": {
+          "package_name": "xyz.milanpaunovic.kompswap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470078814412-2rnbga05egdjjhs9dplqfskse9hc97jg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "xyz.milanpaunovic.kompswap",
+            "certificate_hash": "a8395b97c14006c602e062eedc329645ac22b48a"
+          }
+        },
+        {
+          "client_id": "470078814412-vdb57bbaga4nlog3a8plrhcitkes5reh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOhg_LdXr72YfqriBS9Gzrf-mjgTBvpxE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "470078814412-vdb57bbaga4nlog3a8plrhcitkes5reh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

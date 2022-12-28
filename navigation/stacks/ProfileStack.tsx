@@ -1,19 +1,19 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import HomeScreen from '../../screens/Home/HomeScreen';
 import TabBar from '../TabBar';
+import TabTwoScreen from '../../screens/Sell/TabTwoScreen';
 
-const HomeStack = () => {
+const ProfileStack = () => {
     const Stack = createNativeStackNavigator();
 
     return (
-        <Stack.Navigator initialRouteName='Home' screenOptions={{
+        <Stack.Navigator initialRouteName='Profile' screenOptions={{
             header: TabBar
         }}>
-            <Stack.Screen name='Home' component={HomeScreen} />
+            <Stack.Screen name='Profile' component={TabTwoScreen} />
         </Stack.Navigator>
     )
 }
 
-export default HomeStack
+export default ProfileStack

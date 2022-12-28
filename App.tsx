@@ -20,8 +20,8 @@ export default function App() {
     reactNavigationLight: NavigationDefaultTheme,
     reactNavigationDark: NavigationDarkTheme,
   });
-  const CombinedDefaultTheme = merge(MD3DarkTheme, LightTheme);
-  const CombinedDarkTheme = merge(MD3LightTheme, DarkTheme);
+  const CombinedDarkTheme = merge(MD3DarkTheme, LightTheme);
+  const CombinedDefaultTheme = merge(MD3LightTheme, DarkTheme);
   const theme = colorScheme === 'dark' ? CombinedDarkTheme : CombinedDefaultTheme
 
   if (!isLoadingComplete) {
@@ -31,7 +31,7 @@ export default function App() {
       <SafeAreaProvider>
         <PaperProvider theme={theme}>
           <Navigation theme={theme} />
-          <StatusBar />
+          <StatusBar backgroundColor={theme.colors.surface} animated={true} />
         </PaperProvider>
       </SafeAreaProvider>
     );
