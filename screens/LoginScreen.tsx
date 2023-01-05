@@ -14,29 +14,42 @@ const LoginScreen = () => {
         setCode,
         code,
         error,
-        loading
+        loading,
+        clearConfirm
     } = usePhoneSignIn();
     const [phoneNumber, setPhoneNumber] = useState('');
 
     const handleSignIn = () => signInWithPhoneNumber(phoneNumber);
     const handleChangePhone = (num: string) => setPhoneNumber(num);
     const handleChangeCode = (code: string) => setCode(code);
+    const handleReset = () => {
+        clearConfirm();
+        setPhoneNumber('');
+    }
 
 
     return (
         <View style={styles.container}>
             {confirm ? (
                 <>
-                    <TextInput value={code} onChangeText={handleChangeCode} style={styles.textInput} disabled={loading} keyboardType={'numeric'} maxLength={6} textContentType={'oneTimeCode'} />
+                    <TextInput value={code} onChangeText={handleChangeCode} style={styles.textInput} disabled={loading} keyboardType={'numeric'} maxLength={6} textContentType={'oneTimeCode'} error={error ? true : false} />
                     {error && <HelperText type='error'>{error}</HelperText>}
                     <Button
                         mode={'contained-tonal'}
                         onPress={confirmCode}
-                        loading={loading}>Confirm Code</Button>
+                        loading={loading}>
+                        Confirm Code
+                    </Button>
+                    <Button
+                        mode={'text'}
+                        onPress={handleReset}
+                        loading={loading}>
+                        Wrong phone number?
+                    </Button>
                 </>
             ) : (
                 <>
-                    <TextInput value={phoneNumber} onChangeText={handleChangePhone} style={styles.textInput} disabled={loading} keyboardType={'phone-pad'} textContentType={'telephoneNumber'} />
+                    <TextInput value={phoneNumber} onChangeText={handleChangePhone} placeholder={'+381xxxxxxx'} style={styles.textInput} disabled={loading} keyboardType={'phone-pad'} textContentType={'telephoneNumber'} />
                     <Button
                         mode={'contained-tonal'} onPress={handleSignIn}
                         loading={loading}>

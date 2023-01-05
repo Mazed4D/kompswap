@@ -27,6 +27,8 @@ const usePhoneSignIn = () => {
 		setLoading(false);
 	};
 
+	const clearConfirm = () => setConfirm(null);
+
 	return {
 		signInWithPhoneNumber,
 		confirmCode,
@@ -35,6 +37,7 @@ const usePhoneSignIn = () => {
 		code,
 		error,
 		loading,
+		clearConfirm,
 	};
 };
 
