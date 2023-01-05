@@ -31,17 +31,7 @@ export default function Sell() {
 		<View style={styles.container}>
 			<Text style={styles.title}>Sell (BETA/CPU ONLY)</Text>
 			{image ? (
-				<View
-					style={{
-						marginVertical: 20,
-						height: size,
-						width: size,
-						overflow: 'hidden',
-						borderRadius: 45,
-						borderWidth: 1,
-						borderColor: 'white',
-					}}
-				>
+				<View style={[styles.imgContainer, { height: size, width: size }]}>
 					<TouchableRipple
 						onPress={pickImage}
 						android_ripple={{
@@ -85,9 +75,11 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		fontWeight: 'bold',
 	},
-	separator: {
-		marginVertical: 30,
-		height: 1,
-		width: '80%',
+	imgContainer: {
+		marginVertical: 20,
+		overflow: 'hidden',
+		borderRadius: 45,
+		borderWidth: 1,
+		borderColor: 'white',
 	},
 });
