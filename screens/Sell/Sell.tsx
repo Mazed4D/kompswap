@@ -23,9 +23,11 @@ export default function Sell() {
 		if (!result.canceled) {
 			setImage(result.assets[0].uri);
 		} else {
-			setImage(null);
+			setImage(image);
 		}
 	};
+
+	const cancelImage = () => setImage(null);
 
 	return (
 		<View style={styles.container}>
@@ -47,6 +49,18 @@ export default function Sell() {
 							style={{ height: size, width: size }}
 						/>
 					</TouchableRipple>
+					<IconButton
+						mode='contained-tonal'
+						style={{
+							zIndex: 2,
+							position: 'absolute',
+							top: 20,
+							right: 20,
+						}}
+						size={30}
+						icon={'delete'}
+						onPress={cancelImage}
+					/>
 				</View>
 			) : (
 				<IconButton
