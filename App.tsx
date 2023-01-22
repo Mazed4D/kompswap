@@ -10,6 +10,7 @@ import {
 	DefaultTheme as NavigationDefaultTheme,
 	NavigationContainer,
 } from '@react-navigation/native';
+import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
@@ -17,6 +18,7 @@ import Navigation from './navigation';
 import useAuth from './hooks/useAuth';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
+import { store } from './store';
 
 export default function App() {
 	const cacheComplete = useCachedResources();
@@ -37,12 +39,14 @@ export default function App() {
 		return null;
 	} else {
 		return (
-			<SafeAreaProvider>
-				<PaperProvider theme={theme}>
-					<Navigation theme={theme} />
-					<StatusBar backgroundColor={theme.colors.surface} animated={true} />
-				</PaperProvider>
-			</SafeAreaProvider>
+			<Provider store={store}>
+				<SafeAreaProvider>
+					<PaperProvider theme={theme}>
+						<Navigation theme={theme} />
+						<StatusBar backgroundColor={theme.colors.surface} animated={true} />
+					</PaperProvider>
+				</SafeAreaProvider>
+			</Provider>
 		);
 	}
 }
